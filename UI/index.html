@@ -2,11 +2,74 @@
 <html>
 
 <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
     <link type="text/css" rel="stylesheet" href="./assets/css/app.css">
 </head>
 
 <body class="main">
-    hello world
+<header class="header">
+    <div class="menu" onclick="toggleSideBar()" > <i  class="material-icons">menu</i></div>
+    <h2>Quick Credit beta</h2>
+</header>
+<main class="main_container">
+    <aside class="side_bar">
+        <div class="nav_item">
+        <a  href="#/home">Home</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/apply">Apply</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/history">History</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/repay">Repayments</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/login">Login</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/signup">Signup</a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/admin">admin</a>
+        </div>
+    </aside>
+    <div class="pages_wrapper">
+        <div  class="page hidden" data-path="/404" data-handler="_404">
+            404 NOT FOUND
+        </div>
+        <div  class="page hidden" data-path="/home" data-handler="home">
+            home
+        </div>
+        <div  class="page hidden" data-path="/loans" data-handler="home">
+            loans
+        </div>
+        <div  class="page hidden" data-path="/apply" data-handler="apply">
+            apply
+        </div>
+        <div  class="page hidden" data-path="/login" data-handler="login">
+            login
+        </div>
+        <div  class="page hidden" data-path="/signup" data-handler="signup">
+            signup
+        </div>
+        <div  class="page hidden" data-path="/repay" data-handler="repay">
+            repay
+        </div>
+        <div  class="page hidden" data-path="/history" data-handler="history">
+            history
+        </div>
+        <div  class="page hidden" data-path="/admin" data-handler="admin">
+            admin
+        </div>
+
+    </div>
+</main>
+<footer class="footer">
+    <p>@Copyright Quick Credit 2019</p>
+</footer>
 </body>
 <script src="./assets/js/app.js" type="text/javascript"></script>
 
