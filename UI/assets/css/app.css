@@ -2,4 +2,42 @@
 .main{
     background-color: bisque;
     color: brown;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+}
+
+.topbar{
+    height: 50px;
+    width: 100%;
+    background-color: blue;
+    
+}
+
+.sidebar{
+    position: relative;
+    width: 240px;
+    height: 100%;
+    background-color: blueviolet;
+}
+.content{
+    position: absolute;
+    top: 50px;
+    left: 240px;
+    right: 0;
+    height: 100%;
+    background-color: aqua;
+}
+
+@media screen and (max-width: 480px){
+    .sidebar{
+        background-color: red;
+       
+    }
+    .content{
+        left: 0;
+    }
 }
