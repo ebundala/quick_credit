@@ -1,74 +1,110 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <meta charset="utf-8">
+    <meta name="description" content="Quick Credit is an online lending platform that provides short term soft loans to individuals. This
+helps solve problems of financial inclusion as a way to alleviate poverty and empower low
+income earners.
+">
+    <meta name="keywords" content="soft loans, web app,alleviate poverty,financial inclusion">
+    <meta name="author" content="Elias Bundala">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick credit</title>
 
     <link type="text/css" rel="stylesheet" href="./assets/css/app.css">
 </head>
 
 <body class="main">
 <header class="header">
-    <div class="menu" onclick="toggleSideBar()" > <i  class="material-icons">menu</i></div>
-    <h2>Quick Credit beta</h2>
+    <div id="menu" class="menu hidden" onclick="toggleSideBar()" > <img src="assets/icons/menu.svg" style="color: white" ></div>
+    <h2 class="app_title">Quick Credit beta</h2>
 </header>
+
 <main class="main_container">
-    <aside class="side_bar">
+    <aside class="side_bar hidden">
+
+         <section id="admin_menus" class="admin_menus hidden">
         <div class="nav_item">
-        <a  href="#/home">Home</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/apply">Apply</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/history">History</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/repay">Repayments</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/login">Login</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/signup">Signup</a>
-        </div>
-        <div class="nav_item">
-            <a  href="#/admin">admin</a>
-        </div>
-    </aside>
-    <div class="pages_wrapper">
-        <div  class="page hidden" data-path="/404" data-handler="_404">
-            404 NOT FOUND
-        </div>
-        <div  class="page hidden" data-path="/home" data-handler="home">
-            home
-        </div>
-        <div  class="page hidden" data-path="/loans" data-handler="home">
-            loans
-        </div>
-        <div  class="page hidden" data-path="/apply" data-handler="apply">
-            apply
-        </div>
-        <div  class="page hidden" data-path="/login" data-handler="login">
-            login
-        </div>
-        <div  class="page hidden" data-path="/signup" data-handler="signup">
-            signup
-        </div>
-        <div  class="page hidden" data-path="/repay" data-handler="repay">
-            repay
-        </div>
-        <div  class="page hidden" data-path="/history" data-handler="history">
-            history
-        </div>
-        <div  class="page hidden" data-path="/admin" data-handler="admin">
-            admin
+            <a  href="#/loans_applications"><img src="assets/icons/baseline-label-24px.svg">
+                <span class="menu_text">Applications</span></a>
         </div>
 
-    </div>
+        <div class="nav_item">
+            <a  href="#/active_loans"><img src="assets/icons/baseline-payment-24px.svg">
+                <span class="menu_text">Active Loans</span></a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/repayed_loans"><img src="assets/icons/baseline-history-24px.svg">
+                <span class="menu_text">Repaid Loans</span></a>
+        </div>
+             <div class="nav_item">
+                 <a  href="#/users"><img src="assets/icons/baseline-supervisor_account-24px.svg">
+                     <span class="menu_text">Users</span></a>
+             </div>
+        </section>
+
+         <section id="user_menus" class="user_menus hidden">
+        <div class="nav_item">
+            <a  href="#/apply"><img src="assets/icons/baseline-account_balance_wallet-24px.svg">
+                <span class="menu_text">Apply</span>
+            </a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/repay"><img src="assets/icons/baseline-payment-24px.svg">
+                <span class="menu_text">Repay</span>
+            </a>
+        </div>
+        <div class="nav_item">
+            <a  href="#/history"><img src="assets/icons/baseline-history-24px.svg">
+                <span class="menu_text">History</span>
+            </a>
+        </div>
+         </section>
+
+        <section id="general_menus" class="general_menus hidden">
+
+            <div class="nav_item">
+                <a  href="#/login" onclick="onLogout()"><img src="assets/icons/baseline-account_circle-24px.svg"><span class="menu_text">Logout</span></a>
+            </div>
+        </section>
+    </aside>
+    <main class="pages_wrapper">
+        <div  class="slider hidden">
+            <div class="line"></div>
+            <div class="subline inc"></div>
+            <div class="subline dec"></div>
+        </div>
+
+
+            <div  class="card page hidden" data-path="/404" data-handler="_404">
+                <div class="row justify-content-space-around">
+                    <h2 >404 NOT FOUND</h2>
+                </div>
+
+            </div>
+        <div  class=" page hidden" data-path="/signup" data-handler="signup">
+            <div class="row justify-content-space-around flex-1">
+                <div class="form">
+                    <form id="signup_form" method="post" action="#/signup" name="signup" class=" card column justify-content-space-around flex-1">
+                        <div class="row justify-content-center"> <h3 >Sign up</h3></div>
+                        <input type="text" required class="input" name="firstName" placeholder="First name">
+                        <input type="text" required class="input" name="lastName" placeholder="Last name">
+                        <input type="text" required class="input" name="address" placeholder="Address">
+                        <input type="email" required class="input" name="email" placeholder="Email">
+                        <input type="password" required class="input" name="password" placeholder="Password">
+                        <input type="submit" class="submit" name="signup" value="SignUp">
+                        <a href="#/login" class="footnote_link">I have an account?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
 </main>
 <footer class="footer">
-    <p>@Copyright Quick Credit 2019</p>
+    <h5>&copy; Quick Credit 2019</h5>
 </footer>
 </body>
 <script src="./assets/js/app.js" type="text/javascript"></script>
