@@ -30,6 +30,7 @@ function  page(path,state) {
 
 
         }else{
+
             //handle page not found here
             showPageAtIndex(pages,0)
         }
@@ -38,7 +39,7 @@ function  page(path,state) {
 }
 /**
  * @desc shows a single page at a specified index and hide all others
- * @param {[HTMLElement]} pages - Nodelist of pages
+ * @param {Array} pages - Nodelist of pages
  * @param {Number} index - index for the page to be shown
  */
 function  showPageAtIndex(pages,index) {
@@ -53,7 +54,7 @@ function  showPageAtIndex(pages,index) {
 }
 /**
  * @desc a utility function to check if a page is found or not
- * @param {[HTMLElement]} pages - array of pages in what to check
+ * @param {Array} pages - array of pages in what to check
  * @param {String} path - a path to the page we want to check
  * @returns {Number} returns an index of page if found or -1 otherwise
  */
@@ -89,9 +90,10 @@ function isNodeVisible(node){
 function showNode(node,show) {
     var classes = node.className;
     if(show){
-        classes= classes.replace("hidden","");
+        classes= classes.replace(/hidden/g,"");
     }
     else{
+        if(!classes.match("hidden"))
         classes= classes+" hidden ";
     }
     node.className=classes;
