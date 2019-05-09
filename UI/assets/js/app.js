@@ -243,7 +243,13 @@ function main(e) {
     },0)
 
 }
+/**
+ * @desc called when approve button is pressed
+ * @param {Number} id - the user id to approve
+ */
+function  approveUser(id) {
 
+}
 
 /**
 @description utility function to query the dom
