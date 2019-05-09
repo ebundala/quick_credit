@@ -233,6 +233,15 @@ body{
     border-radius: 4px;
     color: white;
 }
+.action_btn_light{
+    background-color: white;
+    padding: 2px 8px 2px 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: black;
+    border-radius: 4px;
+    color: black;
+}
 .menu_text{
 
 }
