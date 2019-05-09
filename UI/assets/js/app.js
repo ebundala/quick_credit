@@ -129,7 +129,7 @@ function main(e) {
     console.log("hello world");
     setTimeout(function () {
 
-        redirectTo("/home",{init:true});
+        redirectTo("/signup",{init:true});
     },0)
 
 }
