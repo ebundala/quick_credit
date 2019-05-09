@@ -30,6 +30,7 @@ function  page(path,state) {
 
 
         }else{
+
             //handle page not found here
             showPageAtIndex(pages,0)
         }
@@ -38,7 +39,7 @@ function  page(path,state) {
 }
 /**
  * @desc shows a single page at a specified index and hide all others
- * @param {[HTMLElement]} pages - Nodelist of pages
+ * @param {Array} pages - Nodelist of pages
  * @param {Number} index - index for the page to be shown
  */
 function  showPageAtIndex(pages,index) {
@@ -53,7 +54,7 @@ function  showPageAtIndex(pages,index) {
 }
 /**
  * @desc a utility function to check if a page is found or not
- * @param {[HTMLElement]} pages - array of pages in what to check
+ * @param {Array} pages - array of pages in what to check
  * @param {String} path - a path to the page we want to check
  * @returns {Number} returns an index of page if found or -1 otherwise
  */
@@ -89,9 +90,10 @@ function isNodeVisible(node){
 function showNode(node,show) {
     var classes = node.className;
     if(show){
-        classes= classes.replace("hidden","");
+        classes= classes.replace(/hidden/g,"");
     }
     else{
+        if(!classes.match("hidden"))
         classes= classes+" hidden ";
     }
     node.className=classes;
@@ -120,14 +122,124 @@ function  toggleSideBar() {
 }
 
 /**
+ * @desc a function to configure UI upon a user login
+ */
+function onUserLogin() {
+    var admin_menu=$("#admin_menus");
+    var user_menu=$("#user_menus");
+    var general=$("#general_menus");
+    var sidebar=$(".side_bar");
+    var menu=$("#menu");
+    showNode(menu,true);
+    showNode(admin_menu,false);
+    showNode(user_menu,true);
+    showNode(general,true);
+    showNode(sidebar,true);
+    redirectTo("/history");
+}
+/**
+ * @desc a function to configure UI upon admin login
+ */
+function onAdminLogin() {
+    var admin_menu=$("#admin_menus");
+    var user_menu=$("#user_menus");
+    var general=$("#general_menus");
+    var sidebar=$(".side_bar");
+    var menu=$("#menu");
+    showNode(menu,true);
+    showNode(admin_menu,true);
+    showNode(user_menu,false);
+    showNode(general,true);
+    showNode(sidebar,true);
+    redirectTo("/loans_applications");
+
+
+}
+/**
+ * @desc called when a login form is submitted
+ * @param {Event} e - a form submitted event
+ */
+function login(e) {
+    e.preventDefault();
+    onAdminLogin();
+}
+
+/**
+ *@desc called when a signup form is submitted
+ * @param {Event} e - a form submitted event
+ */
+function signup(e) {
+    e.preventDefault();
+    onUserLogin();
+
+}
+/**
+ * @desc handle ui changes during logout event
+ *
+ */
+function  onLogout() {
+    var admin_menu=$("#admin_menus");
+    var user_menu=$("#user_menus");
+    var general=$("#general_menus");
+    var sidebar=$(".side_bar");
+    var menu=$("#menu");
+    showNode(menu,false);
+    showNode(admin_menu,false);
+    showNode(user_menu,false);
+    showNode(general,false);
+    showNode(sidebar,false);
+    redirectTo("/login");
+
+}
+
+/**
+ * @desc adds events lisnerners to forms
+ */
+function addFormsEventListeners() {
+    $("#login_form").addEventListener("submit",login);
+    $("#signup_form").addEventListener("submit",signup);
+
+}
+/**
+ * @desc a fuction to retrieve a specific loan and display its details
+ * @param {String } id - the id of the loan object to retrieve ans show
+ */
+function  viewLoanDetails(id) {
+    //todo fetch the loan here
+    loading(true)
+    setTimeout(function () {
+        navigateTo("/loan_detail",{loan:{}})
+        loading(false)
+    },5000)
+
+
+}
+/**
+ * @desc a function to open pay on favor flow
+ * @param {String } id - the id of the loan to be payed on favor of lender
+ */
+function payInFavor(id) {
+    navigateTo("/repay_in_favor",{loan:{}})
+
+}
+/**
+ * @desc a utility function to show and hide progress bar
+ * @param {Boolean} state - a state whether loading or not
+ */
+function loading(state) {
+    var progressBar=$(".slider");
+    showNode(progressBar,state);
+}
+/**
 @desc app entry point
 @param {event} e - DOMContentLoaded event
 */
 function main(e) {
     console.log("hello world");
+    addFormsEventListeners();
     setTimeout(function () {
 
-        redirectTo("/home",{init:true});
+        redirectTo("/login",{init:true});
     },0)
 
 }
