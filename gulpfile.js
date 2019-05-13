@@ -38,5 +38,7 @@ gulp.task("build",function () {
 })
 
 gulp.task("default",function () {
-
+   return gulp.series("lint","build",function (cb) {
+       cb();
+   })
 });

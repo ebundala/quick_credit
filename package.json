@@ -4,7 +4,8 @@
   "description": "simple web app to offer quick soft loans",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "./node_modules/.bin/mocha ./server/test --recursive --reporter spec",
+     "build":"./node_modules/.bin/gulp"
   },
   "repository": {
     "type": "git",
@@ -32,9 +33,11 @@
     "gulp-babel": "^8.0.0-beta.2",
     "gulp-eslint": "^5.0.0",
     "mocha": "^6.1.4",
+    "request": "^2.88.0",
     "run-sequence": "^2.2.1"
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "express": "^4.16.4"
   }
 }
