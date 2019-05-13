@@ -1,0 +1,40 @@
+{
+  "name": "quick_credit",
+  "version": "1.0.0",
+  "description": "simple web app to offer quick soft loans",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebundala/quick_credit.git"
+  },
+  "keywords": [
+    "softloans",
+    "webapp",
+    "spa",
+    "vanillajs"
+  ],
+  "author": "ebundala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ebundala/quick_credit/issues"
+  },
+  "homepage": "https://github.com/ebundala/quick_credit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-eslint": "^5.0.0",
+    "mocha": "^6.1.4",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
