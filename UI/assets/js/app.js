@@ -210,7 +210,7 @@ function  viewLoanDetails(id) {
     setTimeout(function () {
         navigateTo("/loan_detail",{loan:{}})
         loading(false)
-    },5000)
+    },500)
 
 
 }
