@@ -252,6 +252,18 @@ function  approveUser(id) {
 }
 
 /**
+ * @desc a function to go back on browser history
+ * @param {String} route - optional param to redirect to;
+ */
+function goback(route) {
+    if(route){
+        redirectTo(route);
+    }else{
+        history.back();
+    }
+}
+
+/**
 @description utility function to query the dom
 @param {String} selector - a css selector to query
  @param {boolean } all - a flag to wether query one node or all nodes
