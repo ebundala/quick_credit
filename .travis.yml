@@ -11,3 +11,4 @@ node_js:
 #  keep_history: true
 #  on:
 #    branch: develop
+after_success: npm run coverage
