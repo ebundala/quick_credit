@@ -193,7 +193,7 @@ function  onLogout() {
 }
 
 /**
- * @desc adds events lisnerners to forms
+ * @desc adds events listeners to forms
  */
 function addFormsEventListeners() {
     $("#login_form").addEventListener("submit",login);
