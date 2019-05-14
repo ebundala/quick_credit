@@ -1,2 +1,2 @@
-# quick_credit
+# quick_credit  [![Build Status](https://travis-ci.org/ebundala/quick_credit.svg?branch=ch-readme-badges-165988314)](https://travis-ci.org/ebundala/quick_credit)
 an app to provide simple quick soft loans
