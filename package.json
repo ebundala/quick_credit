@@ -4,7 +4,7 @@
   "description": "simple web app to offer quick soft loans",
   "main": "index.js",
   "scripts": {
-    "test": "nyc ./node_modules/.bin/mocha ./server/test --recursive --reporter spec",
+    "test": "nyc ./node_modules/.bin/mocha ./dist/test --recursive --reporter spec",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "./node_modules/.bin/gulp"
   },
@@ -27,6 +27,7 @@
   "devDependencies": {
     "@babel/core": "^7.4.4",
     "@babel/preset-env": "^7.4.4",
+    "chakram": "^1.5.0",
     "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
