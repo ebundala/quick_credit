@@ -25,7 +25,7 @@ describe('tests for signup', () =>{
         });
 
 
-        it('should respond 404 for "invalid input"', ()=> {
+        it('should respond 400 for "invalid input"', ()=> {
             let response = request('post', `${baseUrl}/auth/signup`,
                 {
                     "id": 0,
@@ -39,7 +39,7 @@ describe('tests for signup', () =>{
                 }
             );
 
-            expect(response).to.have.status(404);
+            expect(response).to.have.status(400);
             return chakram.wait();
         });
 

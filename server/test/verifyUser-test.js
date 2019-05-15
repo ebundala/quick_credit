@@ -20,10 +20,10 @@ describe('tests for /users/:email/verify', () =>{
         });
 
 
-        it('should respond 404 for "invalid input"', ()=> {
+        it('should respond 400 for "invalid input"', ()=> {
             let response = request('patch', `${baseUrl}/users/xxxx/verify`);
 
-            expect(response).to.have.status(404);
+            expect(response).to.have.status(400);
             return chakram.wait();
         });
 

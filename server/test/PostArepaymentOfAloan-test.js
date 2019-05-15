@@ -29,7 +29,7 @@ describe('tests for /loans/:loanId/repayments', () =>{
         });
 
 
-        it('should respond 404 for "invalid input"', ()=> {
+        it('should respond 400 for "invalid input"', ()=> {
             let response = request('post', `${baseUrl}/loans/x/repayments`,{
                 "id": 0,
                 "createdOn": "string",
@@ -37,7 +37,7 @@ describe('tests for /loans/:loanId/repayments', () =>{
                 "amount": 0
             });
 
-            expect(response).to.have.status(404);
+            expect(response).to.have.status(400);
             return chakram.wait();
         });
 

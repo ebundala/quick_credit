@@ -19,13 +19,13 @@ describe('tests for signin', () =>{
         });
 
 
-        it('should respond 404 for "failed to login"', ()=> {
+        it('should respond 400 for "failed to login"', ()=> {
             let response = request('post', `${baseUrl}/auth/signin`, {
                 "password": "",
                 "email": ""
             });
 
-            expect(response).to.have.status(404);
+            expect(response).to.have.status(400);
             return chakram.wait();
         });
 
