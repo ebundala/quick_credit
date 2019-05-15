@@ -1,7 +1,7 @@
 .idea
-.docs
+docs
 .vscode
-.dist
+dist
 out
 .nyc_output
 node_modules
