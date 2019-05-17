@@ -1,0 +1,52 @@
+{
+  "name": "quick_credit",
+  "version": "1.0.0",
+  "description": "simple web app to offer quick soft loans",
+  "main": "/dist/index.js",
+  "scripts": {
+    "start": "node ./dist/index.js",
+    "test": "nyc ./node_modules/.bin/mocha ./dist/test --recursive --reporter spec",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "build": "./node_modules/.bin/gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ebundala/quick_credit.git"
+  },
+  "keywords": [
+    "softloans",
+    "webapp",
+    "spa",
+    "vanillajs"
+  ],
+  "author": "ebundala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ebundala/quick_credit/issues"
+  },
+  "homepage": "https://github.com/ebundala/quick_credit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "chakram": "^1.5.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.17.2",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0-beta.2",
+    "gulp-eslint": "^5.0.0",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.1",
+    "request": "^2.88.0",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "swagger-ui-express": "^4.0.3"
+  }
+}
