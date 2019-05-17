@@ -13,5 +13,6 @@ export default class Loan {
         this.paymentInstallment = paymentInstallment;
         this.balance = balance;
         this.interest = interest;
+
     }
 }

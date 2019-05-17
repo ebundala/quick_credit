@@ -1,2 +1,2 @@
-# quick_credit  [![Build Status](https://travis-ci.org/ebundala/quick_credit.svg?branch=ch-readme-badges-165988314)](https://travis-ci.org/ebundala/quick_credit) [![Coverage Status](https://coveralls.io/repos/github/ebundala/quick_credit/badge.svg?branch=master)](https://coveralls.io/github/ebundala/quick_credit?branch=master)
+# quick credit  [![Build Status](https://travis-ci.org/ebundala/quick_credit.svg?branch=develop)](https://travis-ci.org/ebundala/quick_credit) [![Coverage Status](https://coveralls.io/repos/github/ebundala/quick_credit/badge.svg?branch=develop)](https://coveralls.io/github/ebundala/quick_credit?branch=develop)
 an app to provide simple quick soft loans

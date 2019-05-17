@@ -11,12 +11,11 @@ describe('tests for signup', () =>{
     describe('tests for post ', () =>{
         it('should respond 200 for "signup success"', () =>{
             let response = request('post', `${baseUrl}/auth/signup`, {
-                "id": null,
-                "firstName": "string",
-                "lastName": "string",
-                "email": "string",
-                "password": "string",
-                "address": "string",
+                "firstName": "john",
+                "lastName": "doe",
+                "email": "example@gmail.com",
+                "password": "qwertyu",
+                "address": "kitaa",
                 "isAdmin": false,
                 "status": "unverified"
             });
@@ -28,12 +27,12 @@ describe('tests for signup', () =>{
         it('should respond 400 for "invalid input"', ()=> {
             let response = request('post', `${baseUrl}/auth/signup`,
                 {
-                    "id": 0,
-                    "firstName": "string",
-                    "lastName": "string",
-                    "email": "string",
-                    "password": "string",
-                    "address": "string",
+
+                    "firstName": "john",
+                    "lastName": "doe",
+                    "email": "example@gmail.com",
+                    "password": "qwertyu",
+                    "address": "kitaa",
                     "isAdmin": false,
                     "status": "unverified"
                 }
