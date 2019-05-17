@@ -6,7 +6,27 @@ const storage={
     users:{
 
     },
-    loans:{},
+    loans:{
+'1558070526521':{
+    "firstName": "admin",
+    "lastName": "admin",
+    "email": "admin@admin.com",
+    "password": "admin",
+    "address": "admin",
+    "status": "pending",
+    "isAdmin": true,
+    "createdOn": "Fri, 17 May 2019 05:22:06 GMT",
+    "id": 1558070461857,
+    "user": "admin@admin.com",
+    "repaid": false,
+    "tenor": 6,
+    "amount": 5000,
+    "paymentInstallment": 875,
+    "balance": 0,
+    "interest": 250,
+    "loanId": 1558070526521
+}
+    },
     repayments:{},
     usersIndex:{}
 };
@@ -33,6 +53,9 @@ export default class Db{
 
         }
     }
+    getStorage(){
+        return storage;
+    }
     timestamp(){
         let date = new Date();
         return Math.ceil(date.getTime());
@@ -45,18 +68,27 @@ export default class Db{
         if(collection&&val)
         {   let id=this.timestamp();
             let date=new Date();
-            //date.setMilliseconds(id);
+
             let createdOn= date.toUTCString();
-            //val[key]=id;
-            //val.createdOn=createdOn;
+
             let value={...val,createdOn:createdOn};
             value[key]=id;
-            storage[`${collection}`][`${id}`]=value;
+
+            //calculate loans interest
+            if(collection==="loans"){
+                let {amount,tenor}=value;
+                let interest=0.05*amount;
+                let paymentInstallment=(amount+interest)/tenor;
+
+                value={...value,interest,paymentInstallment}
+            }
 
             //create user indexes
             if(collection==="users"){
                 storage["usersIndex"][`${val.email}`]=id;
             }
+
+            storage[`${collection}`][`${id}`]=value;
         return id;
         }
         return -1;
