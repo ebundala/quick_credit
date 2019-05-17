@@ -3,8 +3,8 @@
  */
 
 export default class ErrorResponse{
-    constructor(msg){
-        this.code=404;
+    constructor(msg,code=400){
+        this.code=code;
         this.error=msg;
     }
 }

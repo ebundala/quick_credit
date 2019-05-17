@@ -20,7 +20,7 @@ router.post("/api/v1/auth/signup",signup)
 
 router.post("/api/v1/auth/signin",signin)
 
-
+router.patch("/api/v1/users/:email/verify",auth)
 router.patch("/api/v1/users/:email/verify",verifyUser)
 
 
