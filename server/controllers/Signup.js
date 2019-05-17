@@ -12,10 +12,10 @@ const signUp=(req,res)=>{
              let dbuser = userModel.signin(user.email, user.password);
          if (dbuser.status === 200) {
              res.status(200);
-             res.json(new SuccessResponse(req.body, 200))
+             res.json(new SuccessResponse(dbuser, 200))
          }
          else {
-             res.status(401);
+             res.status(400);
              res.json(dbuser);
          }
      }

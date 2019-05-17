@@ -5,6 +5,7 @@ import ErrorResponse from "../models/ErrorResponse"
 const signin=(req,res)=>{
     let userModel = new User();
    let credentials=req.body;
+   console.log(credentials);
     if(credentials&&credentials.email&&credentials.password){
         let userResp=userModel.signin(credentials.email,credentials.password);
         if (userResp&&userResp.code===200){
