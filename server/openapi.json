@@ -15,10 +15,10 @@
     },
     "servers": [
         {
-            "url": "http://localhost/api/v1"
+            "url": "http://peaceful-stream-51240.herokuapp.com/api/v1"
         },
         {
-            "url": "https://localhost/api/v1"
+            "url": "https://peaceful-stream-51240.herokuapp.com/api/v1"
         }
     ],
     "security": [
@@ -57,7 +57,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "Invalid input",
                         "content": {
                             "application/json": {
@@ -101,7 +101,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "failed to login",
                         "content": {
                             "application/json": {
@@ -147,7 +147,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -192,7 +192,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -249,7 +249,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -314,7 +314,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -354,7 +354,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -404,7 +404,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json": {
@@ -457,7 +457,7 @@
                             }
                         }
                     },
-                    "404": {
+                    "400": {
                         "description": "invalid input",
                         "content": {
                             "application/json:": {

@@ -2,11 +2,12 @@
   "name": "quick_credit",
   "version": "1.0.0",
   "description": "simple web app to offer quick soft loans",
-  "main": "index.js",
+  "main": "/dist/index.js",
   "scripts": {
+    "start":"node ./dist/index.js",
     "test": "nyc ./node_modules/.bin/mocha ./dist/test --recursive --reporter spec",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
-    "build": "./node_modules/.bin/gulp"
+    "build": "./node_modules/.bin/gulp build"
   },
   "repository": {
     "type": "git",

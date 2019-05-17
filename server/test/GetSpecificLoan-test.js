@@ -18,9 +18,9 @@ describe('tests for /loans/:loanId', () =>{
         });
 
 
-        it('should respond 404 for "invalid input"', ()=> {
+        it('should respond 400 for "invalid input"', ()=> {
             let response = request('get', `${baseUrl}/loans/xxx`);
-            expect(response).to.have.status(404);
+            expect(response).to.have.status(400);
             return chakram.wait();
         });
 
