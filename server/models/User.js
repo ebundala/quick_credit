@@ -100,8 +100,36 @@ export default class  User{
 
 
     }
-    repayLoan(repayment){
-       return this.db.insert(this.db.REPAYMENTS,repayment)
+    repayLoan(repayment,token){
+
+        if(repayment&&repayment.amount&&repayment.loanId){
+          let {loanId,amount}=repayment;
+          let loan = this.getLoanById(loanId);
+
+          if(loan&&!loan.repaid&&loan.status===this.APPROVED){
+              let canRepay=true;//loan.user=token.email||token.isAdmin;
+              let isNotOverpay=(loan.balance+amount)<=(loan.amount+loan.interest);
+              console.log(amount,loan.balance,loan.amount,loan.interest)
+              if(canRepay&&isNotOverpay){
+              this.db.insert(this.db.REPAYMENTS,repayment);
+              loan.balance=loan.balance+amount;
+              if(loan.balance===(loan.interest+loan.amount)){
+                  loan.repaid=true;              }
+               this.db.update(this.db.LOANS,loan);
+                  let results={...loan,paidAmount:amount}
+                  return new SuccessResponse(results);
+
+              }else{
+                  return new ErrorResponse("Error permission denied/overpay ")
+              }
+
+          }else{
+              return new ErrorResponse("Failed invalid/payed/rejected/pending loan repayment")
+          }
+        }
+            return new ErrorResponse("invalid input")
+
+
     }
     getRepaymentHistory(loanId){
      return this.db.getAllByFieldValue(this.db.REPAYMENTS,"loanId",loanId)
