@@ -12,7 +12,7 @@ const signin=(req,res)=>{
             res.json(userResp);
         }else{
             res.status(400);
-            res.json(new ErrorResponse("invalid credentials",400));
+            res.json(userResp);
         }
     }else {
         res.status(400);

@@ -1,15 +1,36 @@
-
+var baseUrl="http://localhost/api/v1";
+var user;
 function redirectTo(path,state) {
     window.history.replaceState(state, path.replace("/",""), "#"+path);
     page(path,state);
 }
+
+
 function navigateTo(path,state) {
      //window.location.hash="#"+path
     window.history.pushState(state, path.replace("/",""), "#"+path);
     page(path,state);
 }
 
+function send(url,method,data) {
+    return new Promise(function (resolve,reject) {
+    var xhr=new XMLHttpRequest();
+    xhr.addEventListener("load",function (e) {
+      resolve(xhr.responseText)
+    });
+   // xhr.addEventListener("progress", updateProgress);
 
+    xhr.addEventListener("error", function (e) {
+        reject(e)
+    });
+    xhr.addEventListener("abort", function(e){
+        reject(e)
+    });
+    xhr.open(method,url);
+    xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhr.send(JSON.stringify(data));
+    })
+}
 /**
  * @desc navigate to new page
  * @param {String} path - a path to navigate to
@@ -161,7 +182,36 @@ function onAdminLogin() {
  */
 function login(e) {
     e.preventDefault();
-    onAdminLogin();
+    var form=$("#login_form").elements;
+    var credentials={
+        "email": form.email.value,
+        "password": form.password.value,
+    }
+    loading(true)
+    send(baseUrl+"/auth/signin","POST",credentials).then(function (res) {
+        var response=JSON.parse(res);
+        if(response.code==200){
+            user=response.data;
+            if(user.isAdmin){
+                onAdminLogin();
+            }else {
+                onUserLogin();
+            }
+        }else{
+
+            $(".form-error").innerHTML=response.error;
+        }
+
+    }).catch(function (e) {
+        console.error(e);
+        var err=JSON.parse(e)
+        if(err&&err.error)
+            msg=err.error;
+        $(".form-error").innerHTML=msg;
+    }).finally(function () {
+        loading(false)
+    })
+
 }
 
 /**
@@ -170,7 +220,38 @@ function login(e) {
  */
 function signup(e) {
     e.preventDefault();
-    onUserLogin();
+   var form=$("#signup_form").elements;
+    var data={
+        "firstName": form.firstName.value,
+        "lastName": form.lastName.value,
+        "email": form.email.value,
+        "password": form.password.value,
+        "address": form.address.value,
+        "status": "unverified"
+    }
+    loading(true)
+    send(baseUrl+"/auth/signup","POST",data).then(function (res) {
+        var response=JSON.parse(res);
+        if(response.code==200){
+            document.user=response.data;
+            onUserLogin();
+        }else{
+
+
+            $(".form-error").innerHTML=response.error;
+        }
+
+    }).catch(function (e) {
+        console.error(e);
+        var err=JSON.parse(e)
+        if(err&&err.error)
+            msg=err.error;
+        $(".form-error").innerHTML=msg;
+    }).finally(function () {
+        loading(false)
+    })
+
+
 
 }
 /**

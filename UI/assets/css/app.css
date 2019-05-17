@@ -345,3 +345,8 @@ body{
     from { left: -80%; width: 80%; }
     to { left: 110%; width: 10%;}
 }
+
+.form-error{
+    color: red;
+
+}
